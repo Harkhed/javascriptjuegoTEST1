@@ -1,0 +1,95 @@
+*{
+    box-sizing:border-box;
+    margin:0;
+    padding:0;
+    font-family: 'Press Start 2P', cursive;
+    border:1px solid red;
+}
+
+body{
+    height:100vh;
+    display:flex;
+    background-color: cornflowerblue;
+    justify-content:center;
+    align-items: center;
+}
+
+#container{
+    height:90vh;
+    width:150vh;
+    position: relative;
+    background-color:rgb(193, 235, 255);
+    overflow:hidden;
+    
+}
+
+#titulo{
+    display:flex;
+    justify-content: center;
+    font-weight: bold;
+    font-size:2.5em;
+    margin-top:1em;
+
+}
+
+#menu{
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+#empezar,#selector{
+    height:5em;
+    background-color: aliceblue;
+    width:15em;
+    display:flex;
+    border-radius:10%;
+    justify-content: center;
+    align-items: center;
+    margin-top:4em;
+    font-size:1.5em;
+    
+    
+}
+
+
+/*Todo lo que tenga que ver con personajes*/
+
+#personaje{
+    width:100px;
+    height:200px;
+    position:absolute;
+    background-image: url("p3.png");
+    background-repeat: no-repeat;
+    bottom:12px;
+}
+
+.correr{
+    animation: animacion 0.25s steps(2) infinite;
+}
+
+
+@keyframes animacion{
+    from{
+        background-position-x:0px;
+    }
+    to{
+        background-position-x:-200px;
+    }
+}
+
+
+
+
+/*Suelo*/
+
+#suelo{
+    width:2000px;
+    height:200px;
+    background-image: url(piso.png);
+    background-repeat: no-repeat;
+    position:absolute;
+    bottom:0px;
+    
+}
