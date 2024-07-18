@@ -6,7 +6,7 @@ const fondo = document.getElementById("container");
 const score = document.getElementById("score");
 const volver = document.getElementById("volver");
 
-
+var obstaculo;
 var dejar = true;
 /*objetos*/
 const personaje = document.getElementById("personaje");
@@ -125,8 +125,18 @@ empezar.addEventListener("click",function(){
 
         moverSuel();
         moverpersonaje();
-        decidircrearobs();
-        moverobstaculo();
+
+        if(dejar === true){
+            decidircrearobs();
+            moverobstaculo();
+        }
+        else{
+            obstaculo.style.display = "none";
+            obstaculos.forEach(function(obstaculo) {
+                obstaculo.parentNode.removeChild(obstaculo);
+            });
+        }
+        
         velY  -= gravedad * deltatime;
 
 
@@ -177,7 +187,7 @@ empezar.addEventListener("click",function(){
 
     function crearobstaculo(){
         if(dejar){
-            var obstaculo = document.createElement("div");
+            obstaculo = document.createElement("div");
             container.appendChild(obstaculo);
             obstaculo.classList.add("sombra");
 
@@ -197,7 +207,7 @@ empezar.addEventListener("click",function(){
             if(obstaculos[x].posX < -obstaculos[x].clientWidth){
                 obstaculos[x].parentNode.removeChild(obstaculos[x]);
                 obstaculos.splice(x,1);
-                Ganarscore;
+                Ganarscore();
 
             }
             else{
@@ -292,4 +302,6 @@ function reiniciarJuego() {
     obstaculos = [];
     puntos = 0;
     score.textContent = puntos;
+
+    obstaculo.style.display = "none";
 }
