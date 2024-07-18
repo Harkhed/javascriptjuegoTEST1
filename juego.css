@@ -3,7 +3,8 @@
     margin:0;
     padding:0;
     font-family: 'Press Start 2P', cursive;
-    border:1px solid red;
+    border: 1px solid red;
+    
 }
 
 body{
@@ -12,14 +13,16 @@ body{
     background-color: cornflowerblue;
     justify-content:center;
     align-items: center;
+    
 }
 
 #container{
     height:90vh;
-    width:150vh;
+    width:1000px;
     position: relative;
     background-color:rgb(193, 235, 255);
     overflow:hidden;
+    
     
 }
 
@@ -29,6 +32,7 @@ body{
     font-weight: bold;
     font-size:2.5em;
     margin-top:1em;
+    
 
 }
 
@@ -37,9 +41,10 @@ body{
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    
 }
 
-#empezar,#selector{
+#empezar,#selector,#volver{
     height:5em;
     background-color: aliceblue;
     width:15em;
@@ -51,24 +56,58 @@ body{
     font-size:1.5em;
     
     
+    
 }
+
+
+#volver{
+    display:none;
+    position:absolute;
+
+}
+
+/*Puntuacion*/
+
+#score{
+    position:absolute;
+    top:40px;
+    right:60px;
+    display:none;
+    
+}
+
 
 
 /*Todo lo que tenga que ver con personajes*/
 
 #personaje{
     width:100px;
-    height:200px;
+    height:130px;
     position:absolute;
     background-image: url("p3.png");
     background-repeat: no-repeat;
-    bottom:12px;
+    background-image: cover;
+    bottom:80px;
+    display:none;
+    z-index:2;
 }
 
 .correr{
     animation: animacion 0.25s steps(2) infinite;
 }
 
+.saltar{
+    animation: animacionsalto 0.25 ease-in-out; 
+}
+
+@keyframes animacionsalto{
+    from{
+        background-position-x:100px;
+    }
+    to{
+        background-position: 300px;
+    }
+}
 
 @keyframes animacion{
     from{
@@ -86,10 +125,32 @@ body{
 
 #suelo{
     width:2000px;
-    height:200px;
-    background-image: url(piso.png);
+    height:100px;
+    background-image: url("piso.png");
     background-repeat: no-repeat;
     position:absolute;
-    bottom:0px;
+    bottom:-20px;
+    object-fit:cover;
+    display:none;
     
+}
+
+/*Sombra*/
+
+.sombra{
+    width:100px;
+    height:130px;
+    position:absolute;
+    background-image: url("enemigo.png");
+    background-repeat: no-repeat;
+    background-image: cover;
+    display:flex;
+    position:absolute;
+    bottom:80px;
+    left:6000px;
+    z-index: 1;
+}
+
+.sombranot{
+    display:none;
 }
